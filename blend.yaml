@@ -20,6 +20,8 @@ spec:
       name: home
     - id: routes
       name: routes
+    - id: hello-cycle
+      name: hello-cycle
     # A feature is a plugin: its folder plugins/<name>/ plus a row of its own above this one (`- id: notes` / `name: notes`), which Settings > Plugins
     # switches with `disabled: true`. This row starts the folders that have no row yet (a live install with `.acryl/bin/acryl plugin add`); a folder with
     # a row is never started twice. Read-only when NODE_ENV=production.
@@ -28,6 +30,12 @@ spec:
     # Sharing: `npm run acryl -- plugin pull github:<owner>/<repo>@<version>` installs a plugin someone released (development only).
     - id: plugin-share
       name: plugin-share
+      config:
+        pulled:
+          hello-cycle:
+            source: github:inboxxobni/hello-cycle@0.1.0
+            integrity: sha512-7Srf6yj5I9UKJItzPAnoMRJeyHZQ/7a/WMZoBhYHkfuq9F8+LT5eaT43NhYpz2NEjkQsAJ9jq6pD6WWWwqsLiA==
+            digest: d273b5afddcf27eb9744764d0d9cf9c97fa69b87ba3fe9c615eff0dd159f4ec1
     - id: server
       name: acryl-node-server
       config:
